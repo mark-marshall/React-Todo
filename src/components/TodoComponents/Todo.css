@@ -1,84 +1,77 @@
 * {
-    font-family: 'Work Sans', sans-serif;
+  font-family: 'Work Sans', sans-serif;
 }
 
 body {
-    background-color: #F2AF9A;
-    margin: 50px;
+  background-color: #f2af9a;
+  margin: auto;
+  margin-top: 100px;
 }
 
 .container {
-    width: 400px;
-    margin: auto;
-    padding: 3% 5%;
-    background-color: #3D075E;
-    border-radius: 4px;
+  width: 400px;
+  margin: auto;
+  padding: 3% 5%;
+  background-color: #3d075e;
+  border-radius: 4px;
 }
 
 .container h2 {
-    color: #F2AF9A;
-    text-transform: lowercase;
-    font-size: 35px;
-    margin-bottom: 50px;
+  color: #f2af9a;
+  text-transform: lowercase;
+  font-size: 35px;
+  margin-bottom: 50px;
 }
 
-.add-button, .clear-button {
-    background-color: #F2AF9A;
-    color: #3D075E;
-    padding: 5% 7%;
-    border: none;
-    border-radius: 2px;
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: lowercase;
-    cursor: pointer;
-    margin: 10px 2% 30px 0;
+.add-button,
+.clear-button {
+  background-color: #f2af9a;
+  color: #3d075e;
+  padding: 5% 7%;
+  border: none;
+  border-radius: 2px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: lowercase;
+  cursor: pointer;
+  margin: 10px 2% 30px 0;
 }
 
 .add-button:hover {
-    background-color: #5DC8BD;
+  background-color: #5dc8bd;
 }
 
 .clear-button:hover {
-    background-color: #CF2C51;
+  background-color: #cf2c51;
 }
 
 .input-box {
-    width: 90%;
-    padding: 5%;
-    border: none;
-    border-radius: 2px;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 50px;
+  width: 90%;
+  padding: 5%;
+  border: none;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 50px;
 }
 
 .list-item {
-    font-size: 25px;
-    color: #f6f6f6;
-    cursor: pointer;
-    line-height: 1.7;
-    animation: fadein 0.5s;
+  font-size: 25px;
+  color: #f6f6f6;
+  cursor: pointer;
+  line-height: 1.7;
+  animation: fadein 0.5s;
 }
 
 .strikethrough {
-    color: #EB4E47;
+  color: #eb4e47;
 }
 
-
-/* Colors 
-@teal: #5DC8BD;
-@seaweed: #2F6C67;
-@burger-sauce: #F2AF9A;
-@pimiento: #EB4E47;
-@soba: #BDB9BC;
-@beetroot: #CF2C51;
-@pumpkin: #ED8733;
-@aubergine: #3D075E;
-@offwhite: #f6f6f6;
-*/
-
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
