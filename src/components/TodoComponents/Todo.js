@@ -10,7 +10,7 @@ export default function Todo({ todoData, onComplete }) {
     );
   } else {
     return (
-      <div onClick={() => onComplete(todoData.id)} className="strikethrough">
+      <div onClick={() => onComplete(todoData.id)} className="list-item strikethrough">
         {todoData.task}
       </div>
     );

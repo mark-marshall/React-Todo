@@ -1,3 +1,38 @@
+body {
+    background-color: #F2AF9A;
+    margin-top: 50px;
+}
+
+.container {
+    width: 400px;
+    margin: auto;
+    padding: 3% 5%;
+    background-color: #3D075E;
+    border-radius: 4px;
+}
+
+.container h2 {
+    color: #F2AF9A;
+    text-transform: lowercase;
+    font-family: 'Work Sans', sans-serif;
+}
+
+
 .strikethrough {
     text-decoration: line-through;
 }
+
+
+
+
+/* Colors 
+@teal: #5DC8BD;
+@seaweed: #2F6C67;
+@burger-sauce: #F2AF9A;
+@pimiento: #EB4E47;
+@soba: #BDB9BC;
+@beetroot: #CF2C51;
+@pumpkin: #ED8733;
+@aubergine: #3D075E;
+@offwhite: #f6f6f6;
+*/
