@@ -12,7 +12,7 @@ export default function TodoForm({
         value={typeValue}
         onChange={event => onTaskTypeChange(event)}
         onKeyPress={event => onEnter(event)}
-        placeholder='slacker 👀'
+        placeholder='slacking... 👀'
         className="input-box"
       />
       <button onClick={() => onAddClick()} className="add-button">+</button>
