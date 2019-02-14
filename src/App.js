@@ -10,12 +10,6 @@ class App extends React.Component {
       todoObject: [],
       taskTyped: ''
     };
-
-    this.onTaskTypeChange = this.onTaskTypeChange.bind(this);
-    this.onAddClick = this.onAddClick.bind(this);
-    this.onEnter = this.onEnter.bind(this);
-    this.onComplete = this.onComplete.bind(this);
-    this.onClearClick = this.onClearClick.bind(this);
   }
 
   onTaskTypeChange = event => {
@@ -25,10 +19,10 @@ class App extends React.Component {
   };
 
   onAddClick = () => {
-    this.setState(st => ({
-      todoObject: st.todoObject.concat({
-        task: st.taskTyped,
-        id: st.todoObject.length + 1,
+    this.setState(prevState => ({
+      todoObject: prevState.todoObject.concat({
+        task: prevState.taskTyped,
+        id: prevState.todoObject.length + 1,
         completed: false
       })
     }));
@@ -37,10 +31,10 @@ class App extends React.Component {
 
   onEnter = event => {
     if (event.key === 'Enter') {
-      this.setState(st => ({
-        todoObject: st.todoObject.concat({
-          task: st.taskTyped,
-          id: st.todoObject.length + 1,
+      this.setState(prevState => ({
+        todoObject: prevState.todoObject.concat({
+          task: prevState.taskTyped,
+          id: prevState.todoObject.length + 1,
           completed: false
         })
       }));
@@ -55,20 +49,6 @@ class App extends React.Component {
     this.reassignKeys();
   }
 
-  reassignKeys = () =>  {
-    this.setState(prevState => ({
-      todoObject : prevState.todoObject.map(item => {
-        item.id = prevState.todoObject.indexOf(item); 
-        return item;})
-    }))
-  }
-
-  clearInputs = () => {
-    this.setState({
-      taskTyped: ''
-    });
-  };
-
   onComplete = props => {
   this.setState(prevState => ({
     todoObject: prevState.todoObject.map(item => {
@@ -81,13 +61,26 @@ class App extends React.Component {
       }
     })
   }))
-  this.reassignKeys();
+}
+
+clearInputs = () => {
+  this.setState({
+    taskTyped: ''
+  });
+};
+
+reassignKeys = () =>  {
+  this.setState(prevState => ({
+    todoObject : prevState.todoObject.map(item => {
+      item.id = prevState.todoObject.indexOf(item); 
+      return item;})
+  }))
 }
 
   render() {
     return (
       <div className="container">
-        <h2>Let's get to work 🐙</h2>
+        <h2>Let's get to work <span role="img" aria-label="octopus">🐙</span></h2>
         <ToDoList
           onComplete={this.onComplete}
           todoObject={this.state.todoObject}
