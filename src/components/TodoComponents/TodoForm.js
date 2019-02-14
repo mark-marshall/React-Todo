@@ -11,6 +11,7 @@ export default function TodoForm({
         value={typeValue}
         onChange={event => onTaskTypeChange(event)}
         onKeyPress={event => onEnter(event)}
+        placeholder='add a toDo...'
       />
       <button onClick={() => onAddClick()}>Add Todo</button>
       <button onClick={() => onClearClick()}>Clear Completed</button>
