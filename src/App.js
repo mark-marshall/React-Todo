@@ -49,11 +49,10 @@ class App extends React.Component {
   };
 
   onClearClick = () => {
-    let clearedList = this.state.todoObject.filter(
-      item => item.completed === false
-    );
-    this.setState({ todoObject: [...clearedList] });
-  };
+    this.setState(prevState => ({
+      todoObject: prevState.todoObject.filter(item => item.completed === false)
+    }))
+  }
 
   clearInputs = () => {
     this.setState({
@@ -62,16 +61,18 @@ class App extends React.Component {
   };
 
   onComplete = props => {
-    let newList = this.state.todoObject.map(item => {
+  this.setState(prevState => ({
+    todoObject: prevState.todoObject.map(item => {
       if (item.id === props) {
         item.completed = !item.completed;
         return item;
-      } else {
-        return item;
       }
-    });
-    this.setState({ todoObject: [...newList] });
-  };
+      else {
+        return item
+      }
+    })
+  }))
+}
 
   render() {
     return (

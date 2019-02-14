@@ -58,6 +58,7 @@ body {
     color: #f6f6f6;
     cursor: pointer;
     line-height: 1.7;
+    animation: fadein 0.5s;
 }
 
 .strikethrough {
@@ -76,3 +77,8 @@ body {
 @aubergine: #3D075E;
 @offwhite: #f6f6f6;
 */
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
