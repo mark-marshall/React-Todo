@@ -52,6 +52,15 @@ class App extends React.Component {
     this.setState(prevState => ({
       todoObject: prevState.todoObject.filter(item => item.completed === false)
     }))
+    this.reassignKeys();
+  }
+
+  reassignKeys = () =>  {
+    this.setState(prevState => ({
+      todoObject : prevState.todoObject.map(item => {
+        item.id = prevState.todoObject.indexOf(item); 
+        return item;})
+    }))
   }
 
   clearInputs = () => {
@@ -72,6 +81,7 @@ class App extends React.Component {
       }
     })
   }))
+  this.reassignKeys();
 }
 
   render() {
