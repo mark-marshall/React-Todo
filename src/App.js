@@ -76,7 +76,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h2>Let's get to work ✌🏻</h2>
+        <h2>Let's get to work 🐙</h2>
         <ToDoList
           onComplete={this.onComplete}
           todoObject={this.state.todoObject}

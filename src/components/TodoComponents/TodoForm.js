@@ -12,10 +12,11 @@ export default function TodoForm({
         value={typeValue}
         onChange={event => onTaskTypeChange(event)}
         onKeyPress={event => onEnter(event)}
-        placeholder='add a toDo...'
+        placeholder='slacker 👀'
+        className="input-box"
       />
-      <button onClick={() => onAddClick()}>Add Todo</button>
-      <button onClick={() => onClearClick()}>Clear Completed</button>
+      <button onClick={() => onAddClick()} className="add-button">+</button>
+      <button onClick={() => onClearClick()} className="clear-button">-</button>
     </div>
   );
 }
