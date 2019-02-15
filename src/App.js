@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import ToDoList from './components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,12 +10,6 @@ class App extends React.Component {
       todoObject: [],
       taskTyped: ''
     };
-
-    this.onTaskTypeChange = this.onTaskTypeChange.bind(this);
-    this.onAddClick = this.onAddClick.bind(this);
-    this.onEnter = this.onEnter.bind(this);
-    this.onComplete = this.onComplete.bind(this);
-    this.onClearClick = this.onClearClick.bind(this);
   }
 
   onTaskTypeChange = event => {
@@ -24,10 +19,10 @@ class App extends React.Component {
   };
 
   onAddClick = () => {
-    this.setState(st => ({
-      todoObject: st.todoObject.concat({
-        task: st.taskTyped,
-        id: st.todoObject.length + 1,
+    this.setState(prevState => ({
+      todoObject: prevState.todoObject.concat({
+        task: prevState.taskTyped,
+        id: prevState.todoObject.length + 1,
         completed: false
       })
     }));
@@ -36,10 +31,10 @@ class App extends React.Component {
 
   onEnter = event => {
     if (event.key === 'Enter') {
-      this.setState(st => ({
-        todoObject: st.todoObject.concat({
-          task: st.taskTyped,
-          id: st.todoObject.length + 1,
+      this.setState(prevState => ({
+        todoObject: prevState.todoObject.concat({
+          task: prevState.taskTyped,
+          id: prevState.todoObject.length + 1,
           completed: false
         })
       }));
@@ -48,34 +43,44 @@ class App extends React.Component {
   };
 
   onClearClick = () => {
-    let clearedList = this.state.todoObject.filter(
-      item => item.completed === false
-    );
-    this.setState({ todoObject: [...clearedList] });
-  };
-
-  clearInputs = () => {
-    this.setState({
-      taskTyped: ''
-    });
-  };
+    this.setState(prevState => ({
+      todoObject: prevState.todoObject.filter(item => item.completed === false)
+    }))
+    this.reassignKeys();
+  }
 
   onComplete = props => {
-    let newList = this.state.todoObject.map(item => {
+  this.setState(prevState => ({
+    todoObject: prevState.todoObject.map(item => {
       if (item.id === props) {
-        item.completed = true;
-        return item;
-      } else {
+        item.completed = !item.completed;
         return item;
       }
-    });
-    this.setState({ todoObject: [...newList] });
-  };
+      else {
+        return item
+      }
+    })
+  }))
+}
+
+clearInputs = () => {
+  this.setState({
+    taskTyped: ''
+  });
+};
+
+reassignKeys = () =>  {
+  this.setState(prevState => ({
+    todoObject : prevState.todoObject.map(item => {
+      item.id = prevState.todoObject.indexOf(item); 
+      return item;})
+  }))
+}
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="container">
+        <h2>Let's get to work <span role="img" aria-label="octopus">🐙</span></h2>
         <ToDoList
           onComplete={this.onComplete}
           todoObject={this.state.todoObject}
